@@ -1,0 +1,6 @@
+selenium 
+webdriver-manager
+fpdf
+beautifulsoup4
+requests
+Pillow
