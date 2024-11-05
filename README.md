@@ -17,9 +17,9 @@ In today’s information-driven world, curating information from multiple web pa
 
 To get started, clone this repository and install the dependencies. Place the URLs of the products in *URLS.txt* textfile. Output file is in *webpage_details.pdf*:
 
-git clone https://github.com/venkatarangan/ProductDigest.git
+`git clone https://github.com/venkatarangan/ProductDigest.git
 cd ProductDigest
 pip install -r requirements.txt
 
 python -v venv .venv
-python ProductDigest.py
+python ProductDigest.py`
