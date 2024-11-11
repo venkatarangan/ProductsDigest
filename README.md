@@ -23,3 +23,6 @@ pip install -r requirements.txt
 
 python -v venv .venv
 python ProductDigest.py
+
+## Acknowledgement
+The basic code was generated from several prompts using GPT-4o and Claude Sonnet 3.5 in Abacus.AI, some lines were then tweaked for accuracy and customization.
