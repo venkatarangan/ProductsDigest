@@ -1,28 +1,58 @@
 # ProductDigest
- A Python-based web scraper that fetches details (title, image thumbnail, and price if available) from specified webpages, especially optimized for Amazon product pages, and generates a comprehensive PDF report with the information. This tool is useful for gathering quick previews of multiple URLs, summarizing the content of each page, and creating a printable or sharable PDF document.
 
-## Features
+## Objective
+This project provides a tool to automatically extract and compile webpage details into a well-formatted PDF document. It is particularly tailored to handle Amazon product pages, capturing prices and other key details, but also works with general URLs to gather metadata and generate page previews.
 
-- Fetches and displays webpage titles, prices (for Amazon pages), and preview images
-- Supports Amazon product pages with dedicated handling for product title, price, and main image
-- Basic support for other websites to extract page title and largest image if available
-- Image verification and reformatting for compatibility in PDFs
-- Generates a PDF report summarizing all fetched data with clickable URLs
+## What It Does
+- Reads a list of URLs from a file (`urls.txt`).
+- Fetches the title, timestamp, and thumbnail of each webpage.
+- Specifically for Amazon URLs, retrieves additional details such as product pricing and description.
+- Compiles these details into a structured PDF file (`webpage_details.pdf`), making it convenient for users to view key webpage information offline.
 
-## Problem Statement
+## How It Works
+1. **URL Processing**: The script reads URLs from a text file (`urls.txt`), handling each URL line-by-line.
+2. **Data Extraction**:
+   - Uses `Selenium` for automated browsing and scraping.
+   - For Amazon pages, specialized routines extract product pricing and details.
+   - General URLs are parsed for titles and preview images.
+3. **PDF Generation**: Combines the extracted data, arranging each entry with a title, thumbnail, and timestamp, and generates a PDF using `PyMuPDF`.
+4. **Error Handling**: Incorporates retry mechanisms for failed URL loads to improve reliability.
 
-In today’s information-driven world, curating information from multiple web pages for comparison or reporting can be time-consuming. Especially in e-commerce, a user might want to compare various products' titles, prices, and images across different sources. This project automates the collection of this information, extracting it from user-provided URLs, formatting it, and exporting it as a structured PDF report.
+## Required Packages
+To run this script, the following Python packages are required:
+- `PyMuPDF (fitz)` for PDF creation.
+- `selenium` for web scraping and page automation.
+- `webdriver_manager` to manage the Edge WebDriver.
+- `Pillow (PIL)` for image processing.
+- `requests` for HTTP requests.
+- `beautifulsoup4` for HTML parsing.
+
+Additionally, ensure that:
+- Microsoft Edge is installed on your system.
+- An internet connection is available.
 
 ## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/venkatarangan/ProductsDigest.git 
+   cd ProductsDigest
+   ```
+2. Install the required Python packages:
+   ```bash
+   pip install PyMuPDF selenium webdriver_manager Pillow requests beautifulsoup4
+   ```
+3. Ensure Microsoft Edge is installed and up-to-date for compatibility with `Selenium`.
 
-To get started, clone this repository and install the dependencies. Place the URLs of the products in *URLS.txt* textfile. Output file is in *webpage_details.pdf*:
+## Usage
+1. Create a text file named `urls.txt` in the project directory, listing the URLs to process, with one URL per line.
+2. Run the script:
+   ```bash
+   python ProductDigest.py
+   ```
+3. The output PDF, `webpage_details.pdf`, will be generated in the project directory.
 
-git clone https://github.com/venkatarangan/ProductDigest.git
-cd ProductDigest
-pip install -r requirements.txt
-
-python -v venv .venv
-python ProductDigest.py
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgement
-The basic code was generated from several prompts using GPT-4o and Claude Sonnet 3.5 in Abacus.AI, some lines were then tweaked for accuracy and customization.
+The basic code was generated from several prompts using GPT-4o and Claude Sonnet 3.5 in Abacus.AI, with further adjustments made to improve accuracy and customize functionality.
