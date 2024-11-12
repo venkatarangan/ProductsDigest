@@ -9,6 +9,12 @@ This project provides a tool to automatically extract and compile webpage detail
 - Specifically for Amazon URLs, retrieves additional details such as product pricing and description.
 - Compiles these details into a structured PDF file (`webpage_details.pdf`), making it convenient for users to view key webpage information offline.
 
+## Sample Output
+
+![Sample Page](samples/sample-page-products-digest.jpg)
+
+The image above shows a sample page with product information from Amazon India, generated during a trial run.
+
 ## How It Works
 1. **URL Processing**: The script reads URLs from a text file (`urls.txt`), handling each URL line-by-line.
 2. **Data Extraction**:
@@ -56,3 +62,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgement
 The basic code was generated from several prompts using GPT-4o and Claude Sonnet 3.5 in Abacus.AI, with further adjustments made to improve accuracy and customize functionality.
+
+## Disclaimer
+All product information, price details, and images are the property of their respective owners, including Amazon India. This project uses such information solely for educational and personal purposes, with no commercial intent.
